@@ -31,7 +31,12 @@ def scrap(url, pages):
                     unit += char
             # ppsu stands for price per one standard unit. su stands for the standard unit, e.g 1 kg, 1 g, 1 ml
             try:
-                prices.append({"product": product_name, "ppsu": f"{float(ppu_split2[0][1:])/int(measurement):.4f}", "su": unit})
+                if unit == 'L':
+                    prices.append({"product": product_name, "ppsu": f"{float(ppu_split2[0][1:])/1000:.4f}", "su": 'mL'})
+                elif unit == 'kg':
+                    prices.append({"product": product_name, "ppsu": f"{float(ppu_split2[0][1:])/1000:.4f}", "su": 'g'})
+                else:
+                    prices.append({"product": product_name, "ppsu": f"{float(ppu_split2[0][1:])/int(measurement):.4f}", "su": unit})
             except:
                 prices.append({"product": product_name, "ppsu": 0, "su": unit})
 

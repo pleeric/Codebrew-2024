@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\pleer\OneDrive - Monash University\Codebrew2024\Codebrew-2024\backend\venv"
+VIRTUAL_ENV="C:\Users\pleer\OneDrive - Monash University\Codebrew2024\Codebrew-2024\backend\webscrape\venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"

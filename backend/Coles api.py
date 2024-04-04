@@ -38,21 +38,21 @@ def scrap(url, pages):
 print("Loading...")
 # coles prices of fruits and vegetables 
 scrap("https://www.coles.com.au/browse/fruit-vegetables?filter_ColesBrands=all&filter_Brand=3955134709&page=", 39)
-print("step 1 done")
+# print("step 1 done")
 # coles prices of meat and seafood
 scrap("https://www.coles.com.au/browse/meat-seafood?filter_ColesBrands=all&filter_Brand=3955134709&filter_Brand=1800418983&page=", 7)
-print("step 2 done")
+# print("step 2 done")
 # coles prices of drinks
 scrap("https://www.coles.com.au/browse/drinks?filter_ColesBrands=all&filter_Brand=3955134709&filter_Brand=561658281&page=", 3)
-print("step 3 done")
+# print("step 3 done")
 # coles prices of pantry items
 scrap("https://www.coles.com.au/browse/pantry?filter_ColesBrands=all&filter_Brand=3955134709&filter_Brand=546232673&filter_Brand=561658281&filter_Brand=753548098&page=", 22)
-print("step 4 done")
+# print("step 4 done")
 # coles prices of dairy
 scrap("https://www.coles.com.au/browse/dairy-eggs-fridge?filter_ColesBrands=all&filter_Brand=3955134709&page=", 8)
-print("step 5 done")
+# print("step 5 done")
 
 with open("colesprices.json", "w") as f:
     json.dump(prices,f)
 
-print(prices)
+# print(prices)

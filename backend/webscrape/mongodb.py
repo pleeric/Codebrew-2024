@@ -24,10 +24,10 @@ ingredients = recipesdb['ingredients']
 
 
 recipedata=json.load(open(r'Recipescrape.json'))
-#ingredientdata=json.load(open(r'ingredientdata.json'))
+ingredientdata=json.load(open(r'colesprices.json'))
 
 
 recipes.insert_many(recipedata)
-#ingredients.insert_many(ingredientdata)
+ingredients.insert_many(ingredientdata)
 
 

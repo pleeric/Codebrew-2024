@@ -35,7 +35,7 @@ def scrap(url, pages):
             except:
                 prices.append({"product": product_name, "ppsu": 0, "su": unit})
 
-print("Loading...")
+# print("Loading...")
 # coles prices of fruits and vegetables 
 scrap("https://www.coles.com.au/browse/fruit-vegetables?filter_ColesBrands=all&filter_Brand=3955134709&page=", 39)
 # print("step 1 done")

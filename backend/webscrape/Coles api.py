@@ -16,17 +16,43 @@ def scrap(url, pages):
             product_name_temp1 = container.find('h2',class_="LinesEllipsis").text
             product_name = product_name_temp1[6:].split('|')[0].rstrip(" ")
 
+            # amount
+
             if product_name_temp1.split('|')[1:]:
                 try:
-                    ppu = container.find("span", class_="price__value").text
+                    ppp = container.find("span", class_="price__value").text
+                    ppu = container.find("div", class_="price__calculation_method").text
                 except:
-                    ppu = "$0"
-                prices.append({"product": product_name, "ppsu": f"{float(ppu[1:]):.4f}", "su": product_name_temp1.split('|')[1][-5:].lstrip(" ")})
+                    ppp = "0"
+                    ppu = "0"
+                ppu_split1 = ppu.split("|")
+                ppu_split2 = ppu_split1[0].split()
+                unit = ""
+                measurement = ""
+                for char in ppu_split2[-1]:
+                    if char.isdigit():
+                        measurement += char
+                    if not char.isdigit():
+                        unit += char
+                # ppp stands for 
+                # price per package where package can be a mass
+                # ppu is price per g or mL
+                try:
+                    if unit == "ea":
+                        prices.append({"product": product_name, "ppp": f"{float(ppp[1:]):.4f}", "package": None, "ppu": None, "fresh": False})
+                    elif unit == 'L' or unit == 'kg':
+                        prices.append({"product": product_name, "ppp": f"{float(ppp[1:]):.4f}", "package": product_name_temp1.split('|')[1][-5:].lstrip(' '), "ppu": f"{float(ppu_split2[0][1:])/1000:.4f}", "fresh": False})
+                    else:
+                        prices.append({"product": product_name, "ppp": f"{float(ppp[1:]):.4f}", "package": product_name_temp1.split('|')[1][-5:].lstrip(' '), "ppu": f"{float(ppu_split2[0][1:])/int(measurement):.4f}", "fresh": False})
+                except:
+                    prices.append({"product": product_name, "ppp": None, "package": None, "ppu": None, "fresh": False})
+
+            """
             else:
                 try:
                     ppu = container.find("div", class_="price__calculation_method").text
                 except:
-                    ppu = "$0"
+                    ppu = None
                 # get rid of any unnecessary stuff in the string
                 ppu_split1 = ppu.split("|")
                 ppu_split2 = ppu_split1[0].split()
@@ -46,26 +72,26 @@ def scrap(url, pages):
                     else:
                         prices.append({"product": product_name, "ppsu": f"{float(ppu_split2[0][1:])/int(measurement):.4f}", "su": unit})
                 except:
-                    prices.append({"product": product_name, "ppsu": 0, "su": unit})
-
+                    prices.append({"product": product_name, "ppsu": None, "su": unit})
+"""
 # print("Loading...")
 # coles prices of fruits and vegetables 
 scrap("https://www.coles.com.au/browse/fruit-vegetables?filter_ColesBrands=all&filter_Brand=3955134709&page=", 39)
-# print("step 1 done")
+print("step 1 done")
 # coles prices of meat and seafood
 scrap("https://www.coles.com.au/browse/meat-seafood?filter_ColesBrands=all&filter_Brand=3955134709&filter_Brand=1800418983&page=", 7)
-# print("step 2 done")
+print("step 2 done")
 # coles prices of drinks
 scrap("https://www.coles.com.au/browse/drinks?filter_ColesBrands=all&filter_Brand=3955134709&filter_Brand=561658281&page=", 3)
-# print("step 3 done")
+print("step 3 done")
 # coles prices of pantry items
 scrap("https://www.coles.com.au/browse/pantry?filter_ColesBrands=all&filter_Brand=3955134709&filter_Brand=546232673&filter_Brand=561658281&filter_Brand=753548098&page=", 22)
-# print("step 4 done")
+print("step 4 done")
 # coles prices of dairy
 scrap("https://www.coles.com.au/browse/dairy-eggs-fridge?filter_ColesBrands=all&filter_Brand=3955134709&page=", 8)
-# print("step 5 done")
+print("step 5 done")
 
 with open("colesprices.json", "w") as f:
     json.dump(prices,f)
 
-# print(prices)
+print(prices)

@@ -25,7 +25,7 @@ const Login = () => {
   return (
     <div className="flex flex-col flex-nowrap justify-center justify-items-center self-stretch	" >
     <form onSubmit={submitForm} className="max-w-sm mx-auto pt-20 pb-20">
-        <h1 className="text-2xl font-black pb-4">Login</h1>
+      <h1 className="text-2xl font-black pb-4">Login</h1>
       <div className="mb-5">
         <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your email</label>
         <input value={email} onChange={(e) => setEmail(e.target.value)} 

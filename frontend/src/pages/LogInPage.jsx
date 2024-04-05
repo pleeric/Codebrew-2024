@@ -1,6 +1,14 @@
+import NavBar from "../components/Navbar"
+import Login from "../components/Login"
+// import Footer from "../components/Footer"
+
 const LogInPage = () => {
   return (
-    <div>LogInPage</div>
+    <>
+      <NavBar />
+      <Login />
+      {/* <Footer /> */}
+    </>
   )
 }
 export default LogInPage

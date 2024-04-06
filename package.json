@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "npm": "^10.5.1",
+    "react-icons": "^5.0.1"
+  },
+  "name": "codebrew-2024-frontend-lawrence",
+  "description": "Codebrew Hackathon 2024 Idea outline: Create a web app where given input of meals over a seven-day period, a comprehensive grocery list is generated that lists the ingredients needed to make the meals.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {}
+}

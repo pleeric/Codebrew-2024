@@ -32,10 +32,32 @@ for i in range(52772,53000):
         img = recipewebsite["strMealThumb"]   
         cuisine = recipewebsite["strArea"] 
 
-        recipes.append({'id':i, "name": name, "ingredients": ingredients, "imgurl":img, "cuisine":cuisine})
+        if cuisine in ["American", "British", "Canadian", "Dutch", "Irish", "Italian", "Jamaican", "Mexican", "Spanish"]:
+            cuisine = "Western"
+        elif cuisine in ["Chinese", "Filipino", "Indian", "Japanese", "Korean", "Malaysian", "Thai", "Vietnamese"]:
+            cuisine = "Asian"
+        else:
+            cuisine = "Middle-eastern"
+
+
+        #Add vegan and gluten-free attributes to recipes
+        vegan = True
+        gluten_free = True
+        for ingredient in ingredients:
+            for ing in ingredient.split():
+                if ing.capitalize() in ["Chicken", "Beef", "Pork", "Fish", "Egg", "Milk", "Cheese"]:
+                    vegan = False
+                if ing.capitalize() in ["Flour", "Bread", "Pasta", "Noodles"]:
+                    gluten_free = False
+
+                
+        recipes.append({'id':i, "name": name, "ingredients": ingredients, "imgurl":img, "cuisine":cuisine, "vegan":vegan, "glutenfree":gluten_free})
+
 
     except:
         next
+
+
 
 with open("recipedata.json", "w") as f:
     json.dump(recipes,f)

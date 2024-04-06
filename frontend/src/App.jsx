@@ -4,6 +4,7 @@ import HomePage from "./pages/HomePage";
 import CreateMealPlanPage from "./pages/CreateMealPlanPage";
 import LogInPage from "./pages/LogInPage";
 import NotFoundPage from "./pages/NotFoundPage";
+import MealPlanPage from "./pages/MealPlanPage";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -11,6 +12,7 @@ const router = createBrowserRouter(
     <Route index element={<HomePage />}/>
     <Route path="/createmealplan" element={<CreateMealPlanPage />}/>
     <Route path="/login" element={<LogInPage />}/>
+    <Route path="/mealplan" element={<MealPlanPage />}/>
     <Route path="*" element={<NotFoundPage />}/>
   </Route>
   )

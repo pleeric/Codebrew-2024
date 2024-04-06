@@ -1,4 +1,4 @@
-import NavBar from "../components/Navbar"
+import NavBarCopy from "../components/NavbarCopy"
 import CreateMealPlanForm from "../components/CreateMealPlanForm"
 // import Footer from "../components/Footer"
 
@@ -6,7 +6,7 @@ const CreateMealPlanPage = () => {
 
   return (
     <>
-      <NavBar />
+      <NavBarCopy />
       <CreateMealPlanForm />
       {/* <Footer /> */}
     </>

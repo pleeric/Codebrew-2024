@@ -17,9 +17,9 @@ const Login = () => {
       password: password,
     }
 
-    console.log(newJob)
-
-    return navigate("/")
+    if (email == "hello@mealmate.com" && password == "password123") {
+      return navigate("/createmealplan")
+    }
   }
 
   return (

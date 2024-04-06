@@ -1,4 +1,6 @@
 import { useState } from "react"
+import { useNavigate } from "react-router-dom"
+
 
 const CreateMealPlanForm = () => {
 
@@ -34,10 +36,12 @@ const CreateMealPlanForm = () => {
     setBudget(e.target.value);
   };
 
+  const navigate = useNavigate()
+
   const submitForm = (e) => {
     e.preventDefault()
 
-    const newJob = {
+    const foodPreferences = {
         vegan: vegan,
         glutenFree: glutenFree,
         cuisine: {
@@ -48,7 +52,7 @@ const CreateMealPlanForm = () => {
         budget: budget,
     }
 
-    console.log(newJob)
+    return navigate("/mealplan")
   }
 
   return (

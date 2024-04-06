@@ -5,9 +5,12 @@ const MealPlanPage = () => {
   return (
     <>
         <NavBarCopy />
+        
+        <br></br>
         <br></br>
 
-        <div class="grid grid-cols-7 ap-4">
+
+        <div class="grid grid-cols-7 gap-4 ap-4 mx-10">
           <div><RecipeCard name = "Beef Lasagna" /></div>
           <div><RecipeCard name = "Chicken Lasagna"/></div>
           <div><RecipeCard name = "Pork Lasagna"/></div>
@@ -17,7 +20,10 @@ const MealPlanPage = () => {
           <div><RecipeCard name = "Venison Lasagna"/></div>
         </div>
 
-        <div class="grid grid-cols-7 ap-4">
+        <br></br>
+        <br></br>
+
+        <div class="grid grid-cols-7 gap-4 ap-4 mx-10">
           <div><RecipeCard name = "A Pasta"/></div>
           <div><RecipeCard name = "B Pasta"/></div>
           <div><RecipeCard name = "C Pasta"/></div>
